@@ -1,0 +1,38 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/Jose/Documents/PlatformIO/hello-world/include",
+                "c:/Users/Jose/Documents/PlatformIO/hello-world/src",
+                "c:/Users/Jose/Documents/PlatformIO/hello-world/lib/c_buffer",
+                "c:/Users/Jose/Documents/PlatformIO/hello-world/.pio/libdeps/native/Unity/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/Jose/Documents/PlatformIO/hello-world/include",
+                    "c:/Users/Jose/Documents/PlatformIO/hello-world/src",
+                    "c:/Users/Jose/Documents/PlatformIO/hello-world/lib/c_buffer",
+                    "c:/Users/Jose/Documents/PlatformIO/hello-world/.pio/libdeps/native/Unity/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60108",
+                ""
+            ],
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "compilerArgs": [
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
