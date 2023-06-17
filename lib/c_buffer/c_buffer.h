@@ -4,34 +4,29 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-/*
-    If the buffer is of a power-of-2 size,
-    then a much quicker bitwise-AND instruction can be used instead.
-*/
-
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE (32)
+#define BUFFER_SIZE (10)
 #endif
 
-#if (BUFFER_SIZE & (BUFFER_SIZE - 1)) != 0
-#error "BUFFER_SIZE must be a power of two"
-#endif
+typedef struct {
 
-#define BUFFER_MASK (BUFFER_SIZE-1)
-
-typedef struct cbuffer_s
-{
   uint8_t buffer[BUFFER_SIZE];
-  int head;
-  int tail;
+  uint8_t head;
+  uint8_t tail;
+  uint8_t element_count;
+
 } cbuffer_t;
 
 
-void cbuffer_init(cbuffer_t* buf);
-void cbuffer_add(cbuffer_t* buf, uint8_t item);
-uint8_t cbuffer_get(cbuffer_t* buf);
-bool cbuffer_empty(cbuffer_t* buf);
-bool cbuffer_full(cbuffer_t* buf);
-void cbuffer_clear(cbuffer_t* buf);
+void init_buffer(cbuffer_t *buff);
+bool buffer_is_empty(cbuffer_t *buff);
+bool buffer_is_full(cbuffer_t *buff);
+uint8_t count_buffer_elements(cbuffer_t *buff);
+void add_element(cbuffer_t *buff, uint8_t new_element);
+uint8_t pop_element(cbuffer_t *buff);
+void clear_buffer(cbuffer_t *buff);
+bool head_overflow(cbuffer_t *buff);
+bool tail_overflow(cbuffer_t *buff);
+
 
 #endif // CIRCULAR_BUFFER_H

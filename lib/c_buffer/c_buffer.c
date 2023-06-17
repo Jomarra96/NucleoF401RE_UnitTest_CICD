@@ -1,32 +1,71 @@
 #include "c_buffer.h"
 
-void cbuffer_init(cbuffer_t* buf) {
-    buf->head = buf->tail = 0;
+void init_buffer(cbuffer_t *buff) {
+    buff->head = 0;
+    buff->tail = 0;
+    buff->element_count = 0;
 }
 
-bool cbuffer_empty(cbuffer_t* buf) {
-    return buf->head == buf->tail;
+bool buffer_is_empty(cbuffer_t *buff) {
+    return (buff->element_count == 0);
 }
 
-void cbuffer_add(cbuffer_t* buf, uint8_t item) {
-  if(cbuffer_full(buf)) {
-    buf->tail = ((buf->tail + 1) & BUFFER_MASK);
-  }
-
-  buf->buffer[buf->head] = item;
-  buf->head = ((buf->head + 1) & BUFFER_MASK);
+bool buffer_is_full(cbuffer_t *buff) {
+    return (buff->element_count == BUFFER_SIZE);
 }
 
-uint8_t cbuffer_get(cbuffer_t* buf) {
-    if (cbuffer_empty(buf))
-        return 0;
-    return buf->buffer[buf->tail++];
+uint8_t count_buffer_elements(cbuffer_t *buff) {
+    return buff->element_count;
 }
 
-bool cbuffer_full(cbuffer_t* buf) {
-    return ((buf->head - buf->tail) & BUFFER_MASK) == BUFFER_MASK;
+void add_element(cbuffer_t *buff, uint8_t new_element) {
+    if (tail_overflow(buff)) {
+        buff->tail = 0;
+    }
+
+    if (head_overflow(buff)) {
+        buff->head = 0;
+    }
+
+    if (buffer_is_full(buff)) {
+        buff->tail++;
+    }
+
+    buff->buffer[buff->head] = new_element;
+    buff->head++;
+
+    if( buff->element_count < BUFFER_SIZE ){
+        buff->element_count++;
+    }
 }
 
-void cbuffer_clear(cbuffer_t* buf) {
-    buf->head = buf->tail;
+uint8_t pop_element(cbuffer_t *buff) {
+    uint8_t element_to_return = 0;
+
+    if (tail_overflow(buff)) {
+        buff->tail = 0;
+    }
+
+    element_to_return = buff->buffer[buff->tail];
+
+    if(buffer_is_empty(buff)){
+        element_to_return = 0;
+    } else {        
+        buff->tail++;
+        buff->element_count--;
+    }
+
+    return element_to_return;
+}
+
+void clear_buffer(cbuffer_t *buff) {
+    init_buffer(buff);
+}
+
+bool head_overflow(cbuffer_t *buff) {
+    return(buff->head == BUFFER_SIZE);
+}
+
+bool tail_overflow(cbuffer_t *buff) {
+    return(buff->tail == BUFFER_SIZE);
 }

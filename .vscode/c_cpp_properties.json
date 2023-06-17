@@ -8,19 +8,19 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/Users/Jose/Documents/PlatformIO/hello-world/include",
-                "c:/Users/Jose/Documents/PlatformIO/hello-world/src",
-                "c:/Users/Jose/Documents/PlatformIO/hello-world/lib/c_buffer",
-                "c:/Users/Jose/Documents/PlatformIO/hello-world/.pio/libdeps/native/Unity/src",
+                "c:/Users/Jose/Documents/PlatformIO/Pio TDD/include",
+                "c:/Users/Jose/Documents/PlatformIO/Pio TDD/src",
+                "c:/Users/Jose/Documents/PlatformIO/Pio TDD/lib/c_buffer",
+                "c:/Users/Jose/Documents/PlatformIO/Pio TDD/.pio/libdeps/native/Unity/src",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "c:/Users/Jose/Documents/PlatformIO/hello-world/include",
-                    "c:/Users/Jose/Documents/PlatformIO/hello-world/src",
-                    "c:/Users/Jose/Documents/PlatformIO/hello-world/lib/c_buffer",
-                    "c:/Users/Jose/Documents/PlatformIO/hello-world/.pio/libdeps/native/Unity/src",
+                    "c:/Users/Jose/Documents/PlatformIO/Pio TDD/include",
+                    "c:/Users/Jose/Documents/PlatformIO/Pio TDD/src",
+                    "c:/Users/Jose/Documents/PlatformIO/Pio TDD/lib/c_buffer",
+                    "c:/Users/Jose/Documents/PlatformIO/Pio TDD/.pio/libdeps/native/Unity/src",
                     ""
                 ]
             },
