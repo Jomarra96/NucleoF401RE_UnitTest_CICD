@@ -25,7 +25,7 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=60108",
+                "PLATFORMIO=60110",
                 ""
             ],
             "compilerPath": "C:/MinGW/bin/gcc.exe",

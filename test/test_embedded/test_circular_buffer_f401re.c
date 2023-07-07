@@ -1,6 +1,5 @@
 #include <unity.h>
 #include "c_buffer.h"
-#include "stm32f4xx_hal.h"
 
 #define F401RE_TEST_DELAY_MS 2000 //Need 2s delay before starting the test since board does not support SW RST
 
