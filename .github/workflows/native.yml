@@ -1,0 +1,21 @@
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+    - name: Install PlatformIO
+      run: |
+        python -m pip install --upgrade pip
+        pip install platformio
+    - name: Run tests on the native platform
+      run: platformio test -e native
+    - name: Run tests on the embedded target
+      env:
+        PLATFORMIO_AUTH_TOKEN: ${{ secrets.PIO_AUTH_TOKEN }}
+      run: platformio remote test -e f4 -v

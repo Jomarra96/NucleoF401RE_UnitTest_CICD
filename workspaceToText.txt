@@ -1,0 +1,43 @@
+├── .vscode
+│   ├── c_cpp_properties.json
+│   ├── extensions.json
+│   ├── launch.json
+│   └── settings.json
+├── include
+│   └── README
+├── lib
+│   └── c_buffer
+│       ├── c_buffer.c
+│       └── c_buffer.h
+├── platformio.ini
+├── README.md
+├── src
+│   ├── main.c
+│   └── main.h
+├── test
+│   ├── test_circular_buffer_f401re.c
+│   ├── test_circular_buffer_native.c
+│   ├── unity_config.c
+│   └── unity_config.h
+└── workspaceToText.txt
+
+[env:native]
+platform = native
+debug_test = *
+build_flags = 
+	-Werror
+build_src_filter =
+	-<../test/test_circular_buffer_f401re.c>
+	-<../test/unity_config.c>
+
+[env:nucleo_f401re]
+platform = ststm32	
+framework = stm32cube
+board = nucleo_f401re
+debug_test = *
+build_src_filter =	
+	-<../test/test_circular_buffer_native.c>
+build_flags = 	
+	-Werror
+	-I"C:\Users\Jose\.platformio\packages\framework-stm32cubef4\Drivers\STM32F4xx_HAL_Driver\Inc"
+	-I"C:\Users\Jose\.platformio\packages\framework-stm32cubef4\Drivers\STM32F4xx_HAL_Driver\Src"
